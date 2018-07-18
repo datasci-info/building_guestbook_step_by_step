@@ -40,6 +40,11 @@ def index():
         app_name = APP_NAME,
         data = sample_data)
 
+@app.route('/submit', methods=['POST'])
+def submit():
+    raw = {"text":request.form['message']}
+    db.messages.insert(raw)
+    return redirect(url_for('index'))
 
 if __name__ == "__main__":
     app.debug = DEBUG
