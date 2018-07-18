@@ -15,9 +15,14 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+    sample_data = [{"text":"Hello! Flask!"}, 
+                   {"text":"Flask is awesome!"}, 
+                   {"text":"Flask is the best!"},
+                   {"text":"Hey! Flask is the best!"}]
     return render_template("home.html",
         title = 'Home',
-        app_name = APP_NAME)
+        app_name = APP_NAME,
+        data = sample_data)
 
 
 if __name__ == "__main__":
