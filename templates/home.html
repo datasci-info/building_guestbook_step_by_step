@@ -4,6 +4,32 @@
       <title>{{title}}</title>
     </head>
     <body>
+        <h1>Sign Me</h1>
+        <form action='/submit' method='post'>
+          <label for='name'>Name</label>
+          <input name='name' type='text'></input>
+        
+          <label for='message'>Message</label>
+          <input name='message' type='text'></input>
+        
+          <input type='submit'></input>
+        </form>
+          <hr>
       <p>Hello! This is {{app_name}}!</p>
+      <hr>
+      <ul>
+          {% for row in data %}
+          {% if row.author %}
+          <li><h2>[{{row.author}}] {{row.text}}</h2></li>
+          {% else %}
+          
+          <li><h2> {{row.text}}</h2></li>
+
+          {% endif %}</li>
+          
+        {% endfor %}
+
+      </ul>
+
     </body>
   </html>
